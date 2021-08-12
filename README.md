@@ -28,9 +28,9 @@ This method has been tested with Chrome, should probably have analogues in other
 4) In the inspect pane which just opened, right click on the first <html> tag and choose Copy > Copy Element
 5) Paste the copied text into a utf-8 text file and save it
 6) Run this script with the name of the text file as an argument, ie
-
+```
     python quoradl.py scrape my_answers_file.html
-
+```
 ## More help
 
 * The `download` command has a `--output` option so you can specify an output file name.
