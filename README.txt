@@ -29,7 +29,9 @@ This method has been tested with Chrome, should probably have analogues in other
 5) Paste the copied text into a utf-8 text file and save it
 6) Run this script with the name of the text file as an argument, ie
 
-       python quoradl.py scrape my_answers_file.html
+    ```
+    python quoradl.py scrape my_answers_file.html
+    ```
 
 ## More help
 
