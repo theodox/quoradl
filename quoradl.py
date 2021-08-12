@@ -259,7 +259,8 @@ def answers_from_quora_html(contentfile):
     4) In the inspect pane which just opened, right click on the first <html> tag and choose Copy > Copy Element
     5) Paste the copied text into a utf-8 text file and save it
     6) Run this script with the name of the text file as an argument, ie
-        python html_dump_parser my_answers_file.html
+
+        python quoradl scrape my_answers_file.html
 
     The result will be a UTF-8 encoded text file where every line is the Quora URL of one of your
     answers, ie
@@ -407,3 +408,14 @@ if __name__ == "__main__":
         os.makedirs(args.folder, exist_ok=True)
 
     scrape_answers(args.htmlfile, folder=args.folder)
+
+
+"""
+Copyright 2021 Steve Theodore 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+"""
