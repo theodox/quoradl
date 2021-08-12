@@ -16,7 +16,7 @@ For individual answers you can grab them quite simply, using a quora relative UR
 Full URLs and shortened https://qr.ae links also work.
 
 
-## Scraping
+## Scraping                                                                                                 
 
 Unfortunately, getting an answer list so you can do a bulk download is highly manual -- Quora seems to make it difficult on purpose.  Effectively the only way to get the list is to get your browser to scroll through all of your answers and then copy-paste the runtime HTML into a text file so you can extract the links from there.
 
@@ -42,3 +42,5 @@ This method has been tested with Chrome, should probably have analogues in other
 ## Final note
 
 This is intended for fellow authors who want to save their own content.  If you are downloading other people's answers please respect their copyright and their NOT FOR REPRODUCTION flags (if those are present, they are included in the front matter of the markdown files)
+
+The `quoradl` script is released under the MIT (= "do what you like, attribute the original author") license.
