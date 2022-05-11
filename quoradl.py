@@ -61,7 +61,7 @@ def recurse_expand_json(js):
     # some of the structures inside the quora json are escaped string jsons,
     # not actual json subunits... recursively inflate them
     for k, v in js.items():
-        if isinstance(v, str) and v[0] in ("[{"):
+        if isinstance(v, str) and v and  v[0] in ("[{"):
             js[k] = json.loads(v)
         if isinstance(js[k], dict):
             recurse_expand_json(js[k])
@@ -174,6 +174,7 @@ def save_quora_answer(URL, filename=None, folder=None):
     # write out the MD file
     with open(f"{filename}", "w", encoding="utf-8") as out_file:
 
+
         # lazy way wrangle the json payload
 
         title_block = qdata["answer"]["question"]["title"]
@@ -201,7 +202,8 @@ def save_quora_answer(URL, filename=None, folder=None):
         out_file.write(f"\tviews: {views}\n")
         out_file.write(f"\tupvotes: {votes}\n")
 
-        question_url = qdata["answer"]["permaUrl"]
+
+        question_url = qdata["answer"]["url"]
         out_file.write(f"\tquora url: {question_url}\n")
 
         profile_url = qdata["answer"]["author"]["profileUrl"]
