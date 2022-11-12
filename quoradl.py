@@ -95,7 +95,7 @@ def get_quora_answer_data(URL):
     # the data starts with a long  assignment to a some kind of hash; it's the first
     # assignment of it's type in the script, so we use it as landmark
     data_start = re.search(
-        'window.ansFrontendGlobals.data.inlineQueryResults.results\["\S*"] = ',
+        'window.ansFrontendGlobals.data.inlineQueryResults.results\["\S*"].push\(',
         data_script,
     ).span()[-1]
 
@@ -209,7 +209,7 @@ def save_quora_answer(URL, filename=None, folder=None):
         profile_url = qdata["answer"]["author"]["profileUrl"]
         out_file.write(f"\tauthor url: {profile_url}\n")
 
-        disclaimer = qdata["answer"]["disclaimer"]
+        disclaimer = qdata["answer"].get("disclaimer")
         if disclaimer:
             out_file.write("\tdisclaimer:{disclaimer}\n")
 
