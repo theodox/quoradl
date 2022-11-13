@@ -59,6 +59,7 @@ def generate_indices(folder, threshhold=2):
     hierarchydict = {}
     years = defaultdict(list)
 
+    # this parses the taglist.txt to generate the tag structure
     def parse_taglist():
         counter = 0
         with open("taglist.txt", "rt") as taglist:
@@ -98,11 +99,14 @@ def generate_indices(folder, threshhold=2):
                     # or just add it
                     tagdict[r] = headword
 
+    # this generates the ignorelist of common words using ignore_words.txt
+    # these cannot be used as keywords, so balance out speedups vs possible needs
     IGNORE = set()
     with open("ignore_words.txt", "rt") as ignorefile:
         for line in ignorefile:
             IGNORE.add(line.strip())
 
+    # gets the cleaned up, non-excluded words in file <filename>
     def extract_lexemes(filename):
         with open(filename, "rt", encoding="utf-8") as thefile:
             for line in thefile:
@@ -114,6 +118,8 @@ def generate_indices(folder, threshhold=2):
                     break
 
         with open(filename, "rt", encoding="utf-8") as thefile:
+
+            # include the question title in the lexeme generator..
             title_tokens = iter(
                 os.path.basename(os.path.splitext(filename)[0]).lower().split("-")
             )
@@ -131,8 +137,10 @@ def generate_indices(folder, threshhold=2):
             unformattes = (re.sub("[\W]", "", t) for t in dispossed)
             no_underscores = (re.sub("[_]", "", t) for t in unformattes)
 
+            # returns only the exclusives
             return set(no_underscores).difference(IGNORE)
 
+    # see what tags are to be found in <filename>
     def tag_file(filename):
         lexemes = extract_lexemes(filename)
 
@@ -161,35 +169,38 @@ def generate_indices(folder, threshhold=2):
         logger.info(f"   {tuple(results)}")
         return results
 
+
+    # global indices
+    # -------------
     # tag: [list of files matching tag]
     files_per_tag = defaultdict(list)
     # file: [tags]
     tags_per_file = {}
-
-    def tag_folder(folderpath):
-
-        for root, _, files in os.walk(folderpath):
-
-            folderpath = os.path.normpath(os.path.abspath(folderpath))
-
-            for f in files:
-                f = f.lower()
-                if f.startswith("tag_") or f.startswith("year_"):
-                    continue
-                if f in ("topics.md", "readme.md"):
-                    continue
-                if not f.endswith(".md"):
-                    continue
-
-                fullpath = os.path.normpath(os.path.join(root, f))
-                shortpath = os.path.relpath(fullpath, folderpath)
-                file_tags = tag_file(fullpath)
-                tags_per_file[shortpath] = file_tags
-                for t in file_tags:
-                    files_per_tag[t].append(shortpath)
-
     parse_taglist()
-    tag_folder(FOLDER)
+
+    for root, _, files in os.walk(FOLDER):
+
+        folderpath = os.path.normpath(os.path.abspath(FOLDER))
+
+        for f in files:
+            f = f.lower()
+            if f.startswith("tag_") or f.startswith("year_"):
+                continue
+            if f in ("topics.md", "readme.md"):
+                continue
+            if not f.endswith(".md"):
+                continue
+
+            # note there are issue here if for some reason the
+            # file names are not lower-cased; this will show up
+            # as links that look right but don't work on github
+            fullpath = os.path.normpath(os.path.join(root, f))
+            shortpath = os.path.relpath(fullpath, folderpath)
+            file_tags = tag_file(fullpath)
+            tags_per_file[shortpath] = file_tags
+            for t in file_tags:
+                files_per_tag[t].append(shortpath)
+
 
     # generate tag indices
     for eachtag in files_per_tag:
@@ -204,8 +215,8 @@ def generate_indices(folder, threshhold=2):
                 prettyname = prettyname.split("\\")[-1]
                 prettyname = prettyname.replace("-", " ").title()
                 prettyname += "?"
-                eachfile = eachfile.replace("\\", "/")
-                tagindex.write(f"* [{prettyname}]({eachfile})\n")
+                outfile = eachfile.replace("\\", "/")
+                tagindex.write(f"* [{prettyname}](/{outfile})\n")
             logger.info(f"wrote tag {eachtag}")
 
     # generate year files
@@ -221,7 +232,10 @@ def generate_indices(folder, threshhold=2):
                 prettyname = prettyname.split("\\")[-1]
                 prettyname = prettyname.replace("-", " ").title()
                 prettyname += "?"
-                yearindex.write(f"* [{prettyname}]({eachfile})\n")
+                outfile = eachfile.replace("\\", "/")
+                # again, if the file casing is off these
+                # links will appear broken
+                yearindex.write(f"* [{prettyname}](/{outfile})\n")
             logger.info(f"wrote year {year}")
 
     year_index_file = os.path.normpath(os.path.join(FOLDER, f"index_years.md"))

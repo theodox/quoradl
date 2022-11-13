@@ -128,11 +128,15 @@ def get_quora_answer_data(URL):
     return qdata
 
 
-def save_quora_answer(URL, filename=None, folder=None):
+def save_quora_answer(URL, filename=None, folder=None, force_lower=True):
     """
     saves answer in <URL> to <filename> or to a file in the local
     directory using a truncated version of the question text as
     a name.
+
+    if force_lower is True (the default) the filename will be lowercased.
+    Github links are case sensitive so forcing them to lower is the
+    cheap cross-platform solution to link breakage.
 
     Return True if successfully written, or False if not
     """
@@ -141,10 +145,14 @@ def save_quora_answer(URL, filename=None, folder=None):
         file_name_segments = URL.split("/")
         answer_tag = file_name_segments.index("answer")
         file_name_base = file_name_segments[answer_tag - 1]
+        # some question titles are super long,
+        # so truncate them for windows
         truncated = file_name_base[:230]
         if len(truncated) < len(file_name_base):
             truncated += str(hash(file_name_base))
         filename = truncated.encode("ascii", "ignore").decode("ascii")
+        if force_lower:
+            filename = filename.lower()
 
     # we'll usually be dealing with relative URLs from a list...
     if not URL.startswith("https://"):
