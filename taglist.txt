@@ -1,0 +1,37 @@
+# headword, triggers.  [] means both forms, + means include tags.  includes using + must come before they are referenced
+alexander the great, "alexander great", alexander, siwa, olympias, bucephalus, issus, granicus, gaugamela, zeus-ammon, macedon, cleitus, porus, phalanx, companions, cassander, perdiccas, hephaistion, craterus, eumenes, sarissa, pella, aristotle, iskander, darab, "alexander romance", argead, philip
+anatolia, hittite[s], hattusas, tarhunz, luwian[s], phrygia[n], lydia[n], croesus, midas, troy, trojan, ilion, ilium
+assyria, ninveh, calhu, asshur, ashurbanipal, sennacherib, neoassyrian, limmu, tiglath, assyria[n], assyrian[s]
+athens, athenian[s], cecrops, theseus, assembly, boule, socrates, plato, aristophanes, aristotle, tragedians, sophocles, aeschylus, pericles, nicias, alcibiades
+babylon, marduk, nebuchudnezzar, bel, chaldaea[n], kassite, neobabylonian, hammurabi, babylonia[n], kaldu, kashdu
+bronze age, "bronze age", "bronze age collapse", "sea peoples", mycenae[an], minoan, troy, trojan, hittite[s], luwian[s]
+byzantium, byzantine, constantinople, "eastern roman", justinian, liutprand, "east rome", "nea roma"
+calendars, dating, chronology, olympiad, auc, "ab urbe condita", exiguus, metonic, synchronism, anno, calendrical, calendar[s]
+cuneiform, tablet, stylus, scribe, dingir, finkel, determinative, sumerogram, akkadian, sumerian
+egypt, egyptian[s], alexandria, thebes, memphis, delta, nile, elephantine, philae, mummy, pyramid, pharaoh, hieratic, demotic, hieroglyphic, coptic, copt[s], hieroglyph[s]
+sparta, spartan[s], lacedaemon[ian], helot, perioeci, eurypontid, ephor, gerousia
+greece, +athens, +sparta, greek, hellenic, ionian, doric, aeolic, polis, hoplite, mycenaean, delphi[c], ekklesia, boule, mycenae, homer, socrates, plato, aristophanes, aristotle, pericles, xenophon, iliad, odyssey, troy, trojan, macedon[ia], plataea, sestos, salamis, thermopylae, thessaly, euboea, peloponnessus, attica, epirus, aegean,isocrates, hellenism, panhellenic
+hellenistic, diadoch[oi], seleucid, ptolemy, ptolemies, ptolemaic, antigonid, parthian, phalanx, koine, "alexander great", indogreek, bactria[n]
+hieroglyphs, demotic, coptic, hieratic, determinative, hieroglyph[ic], "middle egyptian", "late egyptian", champollion, sacy
+historiography, historian[s], historiographical
+homer, homeric, odyssey, iliad, achilles, menelaus, agammenon, helen, memnon, odysseus, nestor
+india, indian, porus, megasthenes, ashoka, chandragupta, taxila, taxiles, indus, sanskrit, dravidian, monsoon, muziris, periplus
+iron age, "iron age"
+judaism, jew, jewish, jerusalem, davidic, talmud[ic], hebrew, judah, israel, hasmonean[s], maccabee[s], pharisee[s], sadducee, josephus, philo, judaea
+latin, latinate, declension, case, grammatical
+macedon, macedonia[n], "alexander great", olynthus, argead[s], olympias, antigonid, antigonus, cassander, philip
+nubia, nubian[s], kush, cushite, napata, taharqa, piye, sudan, meroe, meroitic, blemmye[s]
+persia, persian, susa, ecbatana, darius, xerxes, cyrus, artaxerxes, daric, cambyses, satrap, shah, sassanid[s], sassanian[s], achaemenid[s], parthian[s]
+phoenecia, phoenecian, canaan[ite], byblos, baalbek, tyre
+religion, bible, biblical, theology, theological, "old testament", "new testament", apostle[s], prophet[s], jesus, olympian[s], polytheistic, polytheism, sacrifice, rites, temple[s], templum, aedes, pantheon, afterlife, hades, heaven, pluto, charon, deity, deities
+rome, roman[s], consul, legate, procurator, tribune, latin, lex, caesar[ian], augustus, julio, claudian, severan, antonine, pompeii, pompey, brutus, cassius, cicero, "roman empire", claudius, provincia, province
+semitic, semite, semitic, akkadian, amorite, aram[aean], triliteral
+slavery, slave[s], unfree, manumission, manumit, libertus, liberti, verna, mamluk, freedman, freedmen
+sumer, sumeria[n], uruk, gilgamesh, larsa, lugal, ensi, inanna, ur, jemdet
+translation, translation[s], grammar, translator
+writing, abjad, abugida, alphabetic, hieroglyphic, demotic, hieratic, cuneiform, glyphs, determinative, codex, miniscule, majuscule, scribe, syllabary, linear, syllabic, "true writing", protcuneiform, protowriting
+carthage, carthaginian, barcid[s], hannibal, punic[s], dido, tophet, moloch
+levant, ugarit[ic], "ras shamra", +phoenecia, +judaism, antioch
+mesopotamia, akkad[ian],  +sumer, tigris, euphrates, +assyria, +babylon, elam[ite], gutian, cuneiform, ziggurat, sargon, tablet, aram[aic]
+north africa, +carthage, numidia[n], numidian[s], berber[s], libyan[s], tifinagh 
+roman republic, "roman republic", "late republic", marius, sulla, caesar, cicero, pompey, tribune, consul[s], aedile[s], comitia, plebeian
